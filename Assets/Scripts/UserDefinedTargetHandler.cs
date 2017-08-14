@@ -199,8 +199,8 @@ public class UserDefinedTargetHandler : MonoBehaviour, IUserDefinedTargetEventHa
     {
         if (udtFrameQualityIndicator != null)
         {
-            Renderer renderer = udtFrameQualityIndicator.GetComponent<Renderer>();
-            renderer.enabled = isVisible;
+            UnityEngine.UI.Image img = udtFrameQualityIndicator.GetComponent<UnityEngine.UI.Image>();
+            img.enabled = isVisible;
         }
     }
 
@@ -250,15 +250,15 @@ public class UserDefinedTargetHandler : MonoBehaviour, IUserDefinedTargetEventHa
 
             bool isMediumOrHighQuality = (IsFrameQualityMedium() || IsFrameQualityHigh()) ? true : false;
 
-            Renderer renderer = udtFrameQualityIndicator.GetComponent<Renderer>();
-
+            UnityEngine.UI.Image img = udtFrameQualityIndicator.GetComponent<UnityEngine.UI.Image>();
+            
             if (isMediumOrHighQuality)
             {
-                renderer.material.color = new Color(0.0f, 1.0f, 0.0f, 1.0f); // green
+                img.color = new Color(0.0f, 1.0f, 0.0f, 1.0f); // green
             }
             else
             {
-                renderer.material.color = new Color(1.0f, 0.0f, 0.0f, 1.0f); // red
+                img.color = new Color(1.0f, 0.0f, 0.0f, 1.0f); // red
             }
 
             udtFrameQualityIndicator.transform.LookAt(Camera.main.transform);
